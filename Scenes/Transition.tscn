@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Transition.gd" type="Script" id=1]
 [ext_resource path="res://Shoukugeki no Souma/d1.png" type="Texture" id=2]
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Logo2:modulate")
+tracks/1/path = NodePath("SoumaFace:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -27,27 +27,34 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.6, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1.5, 1.5 ), Vector2( 2, 2 ), Vector2( 2.5, 2.5 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Logo3:modulate")
+tracks/2/path = NodePath("SoumaFace:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0 ) ]
 }
-
-[sub_resource type="CanvasItemMaterial" id=2]
-light_mode = 1
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_scene"
+} ]
+}
 
 [node name="Transition" type="CanvasLayer"]
 layer = 10
@@ -61,44 +68,9 @@ color = Color( 1, 1, 1, 0 )
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )
 
-[node name="Logo2" type="CPUParticles2D" parent="."]
+[node name="SoumaFace" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 2 )
-use_parent_material = true
-position = Vector2( 426.666, 245.21 )
-lifetime = 4.0
-speed_scale = 0.9
-explosiveness = 1.0
-randomness = 0.5
-local_coords = false
-draw_order = 1
+position = Vector2( 413.405, 591.512 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
-spread = 180.0
-gravity = Vector2( 70, 70 )
-initial_velocity = 80.0
-initial_velocity_random = 0.5
-angular_velocity = 800.0
-angular_velocity_random = 0.5
-scale_amount = 0.1
-scale_amount_random = 0.6
-
-[node name="Logo3" type="CPUParticles2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 2 )
-use_parent_material = true
-position = Vector2( 137.318, 823.906 )
-lifetime = 4.0
-speed_scale = 0.9
-explosiveness = 1.0
-randomness = 0.5
-local_coords = false
-draw_order = 1
-texture = ExtResource( 2 )
-spread = 180.0
-gravity = Vector2( 70, 70 )
-initial_velocity = 80.0
-angular_velocity = 800.0
-angular_velocity_random = 0.5
-scale_amount = 0.1
-scale_amount_random = 0.6
 
